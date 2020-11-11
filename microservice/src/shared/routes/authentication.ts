@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
 import handleLog from '../middleware/handleLog';
-import AuthenticationController from '../../authentication/AuthenticationController';
+import AuthenticationController from '../../features/authentication/AuthenticationController';
 
 const authentication = Router();
 const authenticationController = new AuthenticationController();

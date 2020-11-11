@@ -1,4 +1,4 @@
-import { IUser } from "../../../shared/interfaces/IUser";
+import { IUser } from "../../../../shared/interfaces/IUser";
 
 export default interface IAuthenticationBLL {
     createUser(user: IUser): Promise<any>;

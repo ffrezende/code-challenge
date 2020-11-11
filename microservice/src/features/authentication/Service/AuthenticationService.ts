@@ -1,5 +1,5 @@
 import IAuthenticationService from './interfaces/IAuthenticationService';
-import { IUser } from '../../shared/interfaces/IUser';
+import { IUser } from '../../../shared/interfaces/IUser';
 
 import { createUserRep, searchUserRep } from '../Repository'
 

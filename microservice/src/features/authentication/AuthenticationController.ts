@@ -2,8 +2,8 @@ import { Request, Response } from 'express';
 
 import AuthenticationBLL from './BLL/AuthenticationBLL';
 import AuthenticationService from './Service/AuthenticationService';
-import { IUser } from '../shared/interfaces/IUser';
-import { ILogin } from '../shared/interfaces/ILogin';
+import { IUser } from '../../shared/interfaces/IUser';
+import { ILogin } from '../../shared/interfaces/ILogin';
 
 class Authenticationontroller {
 

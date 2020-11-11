@@ -1,9 +1,9 @@
 import IAuthenticationBLL from './interfaces/IAuthenticationBLL';
 import AuthenticationService from '../Service/AuthenticationService';
-import { IUser } from '../../shared/interfaces/IUser';
+import { IUser } from '../../../shared/interfaces/IUser';
 
-import { generateJWT} from '../../shared/middleware/authToken';
-import { ILogin } from '../../shared/interfaces/ILogin';
+import { generateJWT} from '../../../shared/middleware/authToken';
+import { ILogin } from '../../../shared/interfaces/ILogin';
 
 class AuthenticationBLL implements IAuthenticationBLL {
     private authenticationService: AuthenticationService;

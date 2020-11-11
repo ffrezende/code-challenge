@@ -1,5 +1,5 @@
 import sqlite3 from'sqlite3';
-import { IUser } from '../../shared/interfaces/IUser';
+import { IUser } from '../../../shared/interfaces/IUser';
 
 const db = new sqlite3.Database('./code_challenge.db');
 
