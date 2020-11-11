@@ -1,5 +1,6 @@
 import app from './app';
+import initDB from './infra/';
 
 const port = 3001;
-
-app.listen(port, async () => console.log(`Servidor executando na porta ${port}`));
+initDB();
+app.listen(port, async () => console.log(`Server runing port: ${port}`));
