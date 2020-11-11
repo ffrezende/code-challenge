@@ -1,6 +1,6 @@
 import { IUser } from "../../../shared/interfaces/IUser";
 
 export default interface IAuthenticationService {
-    authenticationPOST(): Promise<any>;
+    createUser(user: IUser): Promise<any>;
     userLogin(user: IUser): Promise<any>;
 }

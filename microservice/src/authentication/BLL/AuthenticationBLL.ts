@@ -2,7 +2,7 @@ import IAuthenticationBLL from './interfaces/IAuthenticationBLL';
 import AuthenticationService from '../Service/AuthenticationService';
 import { IUser } from '../../shared/interfaces/IUser';
 
-import { generateJWT} from '../../shared/auth/';
+import { generateJWT} from '../../shared/middleware/authToken';
 import { ILogin } from '../../shared/interfaces/ILogin';
 
 class AuthenticationBLL implements IAuthenticationBLL {
@@ -12,10 +12,10 @@ class AuthenticationBLL implements IAuthenticationBLL {
         this.authenticationService = authenticationService;
     }
 
-    authenticationPOST(): Promise<Array<string>> {
+    createUser(user: IUser): Promise<ILogin> {
         return new Promise(async (resolve: Function, reject: Function) => {
             try {
-                resolve(await this.authenticationService.authenticationPOST());
+                resolve(await this.authenticationService.createUser(user));
             } catch (erro) {
                 reject(erro);
             }
@@ -24,13 +24,13 @@ class AuthenticationBLL implements IAuthenticationBLL {
 
     userLogin(user: IUser): Promise<ILogin> {
         return new Promise(async (resolve: Function, reject: Function) => {
-            const {auth} = await this.authenticationService.userLogin(user)
+            const {auth, userId} = await this.authenticationService.userLogin(user)
 
             if(auth) {
-                const token = generateJWT('id')
-                resolve( {auth: true, token})
+                const token = generateJWT(userId)
+                resolve({ auth: true, token })
             } else {
-                resolve({auth:false, token: ''})
+                resolve({ auth: false, token: '' })
             }     
         });
     }
