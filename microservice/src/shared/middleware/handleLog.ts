@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 
 const handleLog = (req: Request, res: Response, next: NextFunction) => {
 	let idLog: string | any;
-
+	
 	if (!req.header('idLog'))
 		idLog = 'TODO: insert uuid';
 	else

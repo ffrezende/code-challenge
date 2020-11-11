@@ -6,8 +6,8 @@ import AuthenticationController from '../../authentication/AuthenticationControl
 const authentication = Router();
 const authenticationController = new AuthenticationController();
 
-authentication.post('/auth', handleLog, authenticationController.authentication);
-authentication.get('/auth', handleLog, authenticationController.authentication);
+authentication.post('/createUser', handleLog, authenticationController.createUser);
+authentication.post('/login', handleLog, authenticationController.userLogin);
 
 
 export default authentication;

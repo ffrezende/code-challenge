@@ -2,6 +2,8 @@ import { Request, Response } from 'express';
 
 import AuthenticationBLL from './BLL/AuthenticationBLL';
 import AuthenticationService from './Service/AuthenticationService';
+import { IUser } from '../shared/interfaces/IUser';
+import {ILogin} from '../shared/interfaces/ILogin';
 
 class Authenticationontroller {
 
@@ -9,7 +11,7 @@ class Authenticationontroller {
         return new AuthenticationBLL(new AuthenticationService());
     }
 
-    authentication = async (req: Request, res: Response) => {
+    createUser = async (req: Request, res: Response) => {
         try {
             const authenticationBLL = this.getLib();
 
@@ -22,10 +24,17 @@ class Authenticationontroller {
     userLogin = async (req: Request, res: Response) => {
         try {
             const authenticationBLL = this.getLib();
+            const user: IUser = req.body;
 
-            return res.status(200).json(await authenticationBLL.authenticationGET());
+            const {auth, token}:ILogin = await authenticationBLL.userLogin(user);
+
+            if (auth) 
+                return res.status(200).json({auth, token});
+            else
+                return res.status(401).end();
+
         } catch (erro) {
-            return res.status(403).json(erro);
+            return res.status(500).end();
         }
     };
 
