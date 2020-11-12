@@ -5,7 +5,7 @@ import AuthenticationService from './Service/AuthenticationService';
 import { IUser } from '../../shared/interfaces/IUser';
 import { ILogin } from '../../shared/interfaces/ILogin';
 
-class Authenticationontroller {
+class AuthenticationController {
 
     getLib(): AuthenticationBLL {
         return new AuthenticationBLL(new AuthenticationService());
@@ -42,4 +42,4 @@ class Authenticationontroller {
 }
 
 
-export default Authenticationontroller;
+export default AuthenticationController;

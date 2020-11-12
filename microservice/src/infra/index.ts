@@ -15,6 +15,12 @@ const initDB = () => {
                     password text NOT NULL
                 )
         `);
+        
+        db.run(`CREATE TABLE IF NOT EXISTS Project (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name text NOT NULL
+        )
+`);
     });
 
     db.close();
