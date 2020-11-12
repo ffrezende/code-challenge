@@ -1,8 +1,8 @@
 import IUserTaskBLL from './interfaces/IUserTaskBLL';
 import UserTaskService from '../Service/UserTaskService';
-import { IUser } from '../../../shared/interfaces/IUser';
 
 import { ILogin } from '../../../shared/interfaces/ILogin';
+import { IProject } from '../../../shared/interfaces/IProject';
 
 class UserTaskBLL implements IUserTaskBLL {
     private userTaskService: UserTaskService;
@@ -11,10 +11,21 @@ class UserTaskBLL implements IUserTaskBLL {
         this.userTaskService = userTaskService;
     }
 
-    createProject(user: IUser): Promise<ILogin> {
+    createProject(project: IProject): Promise<ILogin> {
         return new Promise(async (resolve: Function, reject: Function) => {
             try {
-                resolve(await this.userTaskService.createProject(user));
+                resolve(await this.userTaskService.createProject(project));
+            } catch (erro) {
+                reject(erro);
+            }
+        });
+    }
+
+
+    getProject(project: IProject): Promise<ILogin> {
+        return new Promise(async (resolve: Function, reject: Function) => {
+            try {
+                resolve(await this.userTaskService.getProject(project));
             } catch (erro) {
                 reject(erro);
             }

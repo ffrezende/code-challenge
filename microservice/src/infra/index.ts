@@ -17,10 +17,17 @@ const initDB = () => {
         `);
         
         db.run(`CREATE TABLE IF NOT EXISTS Project (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name text NOT NULL
-        )
-`);
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    name text NOT NULL
+                )
+        `);
+
+        db.run(`CREATE TABLE IF NOT EXISTS Tasks (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    projectId INTEGER NOT NULL,
+                    name text NOT NULL
+                )
+        `);
     });
 
     db.close();

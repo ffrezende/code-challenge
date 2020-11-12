@@ -1,6 +1,5 @@
-import { IUser } from "../../../../shared/interfaces/IUser";
+import { IProject } from "../../../../shared/interfaces/IProject";
 
 export default interface IUserTaskService {
-    createProject(user: IUser): Promise<any>;
-  
+    createProject(project: IProject): Promise<any>;
 }

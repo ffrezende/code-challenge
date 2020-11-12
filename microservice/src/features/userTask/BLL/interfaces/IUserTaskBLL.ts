@@ -1,5 +1,6 @@
-import { IUser } from "../../../../shared/interfaces/IUser";
+import { IProject } from "../../../../shared/interfaces/IProject";
 
 export default interface IUserTaskBLL {
-    createProject(user: IUser): Promise<any>;
+    createProject(project: IProject): Promise<any>;
+    getProject(project: IProject): Promise<any>;
 }

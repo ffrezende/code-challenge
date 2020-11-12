@@ -1,28 +1,28 @@
 import sqlite3 from'sqlite3';
-import { IUser } from '../../../shared/interfaces/IUser';
+import { IProject } from '../../../shared/interfaces/IProject';
 
 const db = new sqlite3.Database('./code_challenge.db');
 
-export const createUserRep = async ({username, password}: IUser): Promise<any>  =>{
+export const createProjectRep = async ({name}: IProject): Promise<any>  =>{
     return new Promise(async (resolve: Function, reject: Function) => {
         
-        db.run(`INSERT INTO Users(username, password) VALUES(?,?)`, [`${username}`, `${password}`], function(err) {
+        db.run(`INSERT INTO Project(name) VALUES(?)`, [`${name}`], function(err) {
             if (err) {
                 console.log(err.message)
-                return resolve(false)
+                return reject(err.message)
             }
           
             console.log(`A row has been inserted with rowid ${this.lastID}`);
-            return resolve(true);
+            return resolve({projectId: this.lastID});
         });
     });
 }
 
 
-export const searchUserRep = async ({username, password}: IUser): Promise<any>  => {
+export const searchProjectRep = async ({id}: IProject): Promise<any>  => {
     return new Promise(async (resolve: Function, reject: Function) => {
         
-        db.all( `SELECT rowid FROM Users WHERE username=? AND password=?`, [`${username}`, `${password}`], function (err:any, rows:any) {
+        db.all( `SELECT rowid, * FROM Project WHERE id=?`, [`${id}`], function (err:any, rows:any) {
             if(!err) {
                 rows.length ? resolve(rows[0]) : resolve([])
             }

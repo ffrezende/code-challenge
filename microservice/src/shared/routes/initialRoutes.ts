@@ -1,5 +1,6 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import authenticationRoute from './authentication';
+import userTaskRoute from './userTask';
 
 const initialRoutes = (app: any): any => {
     const router = Router();
@@ -14,6 +15,7 @@ const initialRoutes = (app: any): any => {
     });
 
     app.use('/api/authentication', router, authenticationRoute);
+    app.use('/api/project', router, userTaskRoute);
 
     return app;
 }

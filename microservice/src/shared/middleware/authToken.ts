@@ -10,7 +10,7 @@ export const generateJWT = (userId: string) => jwt.sign({ userId }, SECRET, { ex
 export const verifyJWT = (req: any, res: Response, next: NextFunction) => {
     const token: any = req.headers['x-acess-token'];
     jwt.verify(token, SECRET, (error: any, decoded: any)=> {
-        if(error) return res.status(401).end();
+        if(error) return res.status(401).json({message: 'Access denied'});
 
         req.userId = decoded.userId
         next();
