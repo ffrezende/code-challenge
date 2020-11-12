@@ -28,6 +28,5 @@ export const searchUserRep = async ({username, password}: IUser): Promise<any>  
             }
             else console.log(err)
         });
-
     });
 }

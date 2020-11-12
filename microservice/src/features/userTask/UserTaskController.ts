@@ -15,7 +15,7 @@ class UserTaskController {
             const userTaskBLL = this.getLib();
             const project: IProject = req.body;
             
-            return res.status(200).json(await userTaskBLL.createProject(project));
+            return res.status(201).json(await userTaskBLL.createProject(project));
 
         } catch (erro) {
             return res.status(403).json(erro);
@@ -28,6 +28,18 @@ class UserTaskController {
             const project: IProject = req.body;
             
             return res.status(200).json(await userTaskBLL.getProject(project));
+
+        } catch (erro) {
+            return res.status(404).json(erro);
+        }
+    };
+
+    deleteProject = async (req: Request, res: Response) => {
+        try {
+            const userTaskBLL = this.getLib();
+            const project: IProject = req.body;
+            
+            return res.status(202).json(await userTaskBLL.deleteProject(project));
 
         } catch (erro) {
             return res.status(403).json(erro);

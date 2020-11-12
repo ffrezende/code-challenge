@@ -16,7 +16,7 @@ class AuthenticationController {
             const authenticationBLL = this.getLib();
             const user: IUser = req.body;
             
-            return res.status(200).json(await authenticationBLL.createUser(user));
+            return res.status(201).json(await authenticationBLL.createUser(user));
         } catch (erro) {
             return res.status(403).json(erro);
         }

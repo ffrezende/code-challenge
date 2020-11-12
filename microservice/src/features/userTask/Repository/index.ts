@@ -15,18 +15,34 @@ export const createProjectRep = async ({name}: IProject): Promise<any>  =>{
             console.log(`A row has been inserted with rowid ${this.lastID}`);
             return resolve({projectId: this.lastID});
         });
+
     });
 }
 
-
-export const searchProjectRep = async ({id}: IProject): Promise<any>  => {
+export const getProjectRep = async ({id}: IProject): Promise<any>  => {
     return new Promise(async (resolve: Function, reject: Function) => {
         
-        db.all( `SELECT rowid, * FROM Project WHERE id=?`, [`${id}`], function (err:any, rows:any) {
+        db.all(`SELECT rowid, * FROM Project WHERE id=?`, [`${id}`], function (err:any, rows:any) {
             if(!err) {
                 rows.length ? resolve(rows[0]) : resolve([])
             }
             else console.log(err)
+        });
+
+    });
+}
+
+export const deleteProjectRep = async ({id}: IProject): Promise<any>  => {
+    return new Promise(async (resolve: Function, reject: Function) => {
+        
+        db.run(`DELETE FROM Project WHERE id=?`, [`${id}`], function (err:any) {
+            if(!err) {
+                return resolve({deleted: true})
+            }
+            else {
+                console.log(err)
+                reject(err) 
+            } 
         });
 
     });

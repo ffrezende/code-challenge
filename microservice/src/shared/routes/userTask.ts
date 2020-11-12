@@ -8,6 +8,7 @@ const userTaskController = new UserTaskController();
 
 userTask.post('/crateProject', verifyJWT, userTaskController.createProject);
 userTask.get('/getProject', verifyJWT, userTaskController.getProject);
+userTask.delete('/deleteProject', verifyJWT, userTaskController.deleteProject);
 
 
 export default userTask;

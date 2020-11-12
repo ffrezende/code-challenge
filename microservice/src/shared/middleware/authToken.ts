@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 dotenv.config();
 const SECRET = 'mysecret' //TODO: use dotenv
 
-export const generateJWT = (userId: string) => jwt.sign({ userId }, SECRET, { expiresIn: 600 });
+export const generateJWT = (userId: string) => jwt.sign({ userId }, SECRET, { expiresIn: 6000 });
 
 export const verifyJWT = (req: any, res: Response, next: NextFunction) => {
     const token: any = req.headers['x-acess-token'];
