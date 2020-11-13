@@ -42,7 +42,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"username\": \"code-challenge\",\n\t\"password\": \"123456\"\n}",
+					"raw": "{\n\t\"username\": \"code-challenge15\",\n\t\"password\": \"123456\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -50,7 +50,17 @@
 					}
 				},
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:3001/api/authentication/createUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"authentication",
+						"createUser"
+					]
 				}
 			},
 			"response": []
@@ -62,12 +72,21 @@
 				"header": [
 					{
 						"key": "x-acess-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxIiwiaWF0IjoxNjA1MTM5OTA3LCJleHAiOjE2MDUxNDA1MDd9.ETK6MOJEaAhtM83FF60D3SocPjmMBpn9csEyy5Z2w3s",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxIiwiaWF0IjoxNjA1MTQzNDQ2LCJleHAiOjE2MDUxNDk0NDZ9.2RtJf5dtZvrHPFkwVuyj0MZ_ObP74wPr2c_oC_WYUWE",
 						"type": "text"
 					}
 				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"name\" : \"CodeChallenge1\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:3001/api/project/createProject",
+					"raw": "http://localhost:3001/api/project/crateProject",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -76,7 +95,7 @@
 					"path": [
 						"api",
 						"project",
-						"createProject"
+						"crateProject"
 					]
 				}
 			},
@@ -84,11 +103,39 @@
 		},
 		{
 			"name": "Get Project",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "x-acess-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxIiwiaWF0IjoxNjA1MTQzNDQ2LCJleHAiOjE2MDUxNDk0NDZ9.2RtJf5dtZvrHPFkwVuyj0MZ_ObP74wPr2c_oC_WYUWE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"id\" : \"5\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:3001/api/project/getProject",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"project",
+						"getProject"
+					]
 				}
 			},
 			"response": []
