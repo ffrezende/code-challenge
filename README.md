@@ -10,6 +10,8 @@ Use the package manager [npm](https://nodejs.org/en/) to install.
 
 ```bash
 npm install
+
+npm start
 ```
 
 The Server will be started: http://localhost:3001/
